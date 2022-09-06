@@ -1,0 +1,79 @@
+{% extends 'post/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url({% static 'assets/img/wp9891017.png' %})">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>/MY IT BLOG/</h1>
+                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            {% for p in posts %}
+            <div class="post-preview">
+                <a href="{% url 'detail' p.pk %}">
+                    <h2 class="post-title">{{ p.title }}</h2>
+                    <h3 class="post-subtitle">{{ p.annotation }}</h3>
+                </a>
+                <p class="post-meta">
+                    Posted by
+                    <a href="#!">{{ p.author }}</a>
+                    on {{ p.date }}
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4"/>
+            {% endfor %}
+            <!-- Pager-->
+            <div class="row">
+                <div class="col-lg-6">
+                    {% if page_obj.has_previous %}
+                    <div class="d-flex justify-content-start mb-4"><a class="btn btn-primary text-uppercase"
+                                                                      href="?page={{ page_obj.previous_page_number }}">←
+                        Previous
+                        Posts
+                    </a></div>
+                    {% else %}
+                    <div class="d-flex justify-content-start mb-4"><a class="btn btn-primary text-uppercase"
+                                                                      href="{% url 'home' %}"> Home page
+                    </a></div>
+                    {% endif %}
+                </div>
+                <div class="col-lg-6">
+                    {% if page_obj.has_next %}
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
+                                                                    href="?page={{ page_obj.next_page_number }}">More
+                        Posts
+                        →</a></div>
+                    {% else %}
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
+                                                                      href="{% url 'home' %}"> Home page
+                    </a></div>
+                    {% endif %}
+                </div>
+            </div>
+
+<!--            {% if page_obj.has_previous %}-->
+<!--                <div class="d-flex justify-content-start mb-4"><a class="btn btn-primary text-uppercase" href="?page={{ page_obj.previous_page_number }}">Previous Posts-->
+<!--                →</a></div>-->
+<!--            {% endif %}-->
+<!--            {% if page_obj.has_next %}-->
+<!--            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="?page={{ page_obj.next_page_number }}">More Posts-->
+<!--                →</a></div>-->
+<!--            {% endif %}-->
+        </div>
+    </div>
+</div>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+{% endblock %}
