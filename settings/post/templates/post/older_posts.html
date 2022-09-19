@@ -8,8 +8,8 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <h1>/MY IT BLOG/</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <h1>/MY/STEPS/</h1>
+                     <span class="subheading">Мой первый шаг в мир IT.</span>
                 </div>
             </div>
         </div>
@@ -41,24 +41,22 @@
                     {% if page_obj.has_previous %}
                     <div class="d-flex justify-content-start mb-4"><a class="btn btn-primary text-uppercase"
                                                                       href="?page={{ page_obj.previous_page_number }}">←
-                        Previous
-                        Posts
+                        Предыдущая страница
                     </a></div>
                     {% else %}
                     <div class="d-flex justify-content-start mb-4"><a class="btn btn-primary text-uppercase"
-                                                                      href="{% url 'home' %}"> Home page
+                                                                      href="{% url 'home' %}"> Домашняя страница
                     </a></div>
                     {% endif %}
                 </div>
                 <div class="col-lg-6">
                     {% if page_obj.has_next %}
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
-                                                                    href="?page={{ page_obj.next_page_number }}">More
-                        Posts
+                                                                    href="?page={{ page_obj.next_page_number }}">Следующая страница
                         →</a></div>
                     {% else %}
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
-                                                                      href="{% url 'home' %}"> Home page
+                                                                      href="{% url 'home' %}"> Домашняя страница
                     </a></div>
                     {% endif %}
                 </div>

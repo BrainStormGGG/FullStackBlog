@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 
 from django.views.generic import ListView, DetailView
 
+
 from .models import Post
 from .forms import ContactForm
 from django.conf import settings
@@ -20,7 +21,6 @@ class OlderPostList(ListView):
     context_object_name = 'posts'
     template_name = 'post/older_posts.html'
     paginate_by = 4
-
 
 class PostDetail(DetailView):
     model = Post
